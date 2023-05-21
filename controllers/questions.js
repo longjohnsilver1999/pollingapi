@@ -1,6 +1,6 @@
 //importing models
 const questions = require("../models/questionModel");
-const options = require("../models/optionModel");
+const options = require("../models/optionsModel");
 //creating a question
 module.exports.createQuestion = async function (req, res) {
   try {
@@ -13,7 +13,7 @@ module.exports.createQuestion = async function (req, res) {
     });
   } catch (err) {
     return res.status(465).json({
-      message: "error in creating a questions",
+      message: "error in creating a question",
       error: err.message,
     });
   }
@@ -29,7 +29,7 @@ module.exports.deleteQuestion = async function (req, res) {
       // checking whether option contains any votes or not
       if (option.votes > 0) {
         return res.status(401).json({
-          message: "you cannot delete that option",
+          message: "you cannot delete this option",
         });
       }
       // delete that particular option

@@ -11,6 +11,8 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+app.use(require("./routes/route"));
+
 app.listen(port, (err) => {
   if (err) {
     console.log(err);
